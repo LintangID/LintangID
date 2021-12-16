@@ -1,0 +1,48 @@
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>RS Kabupaten Boyolali</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    <style>
+      #map {
+        top: 50%;
+        width: 100%;
+        height: 550px;
+      }
+      img {
+        width: 200px;
+        height: 150px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1 align="center">Rumah Sakit di Kabupaten Boyolali</h1>
+    <div id="map"></div>
+    <script type="text/javascript">
+      var map = L.map('map').setView([-7.5344079, 110.6041944], 13);
+      L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 18,
+        id: 'mapbox/streets-v11',
+        tileSize: 512,
+        zoomOffset: -1,
+        accessToken: 'pk.eyJ1IjoibGludGFuZ2FkaSIsImEiOiJja3g4ZTVteWYyeDM3MndwOW4xYXkyYjZyIn0.ps-GNGrNY363-_9cm-6bmA',
+      }).addTo(map);
+
+      var icon = L.icon({
+        iconUrl: 'image/icon.png',
+        iconSize: [40, 50], // size of the icon
+      });
+
+      var PandanArang = L.marker([-7.532717897170771, 110.59071346770725], { icon: icon }).addTo(map).bindPopup('<center><img src="image/pandan.jpg"> <br/> <b>RSUD Pandan Arang Boyolali</b>');
+      var UmiBarokah = L.marker([-7.5153924245039905, 110.59524652537931], { icon: icon }).addTo(map).bindPopup('<center><img src="image/ub.jpg"> <br/> <b>RS Umi Barokah Boyolali</b>');
+      var PKU = L.marker([-7.520181219371056, 110.60689456770712], { icon: icon }).addTo(map).bindPopup('<center><img src="image/pku.jpg"> <br/> <b>RS PKU Aisyiyah Boyolali</b>');
+      var Natalia = L.marker([-7.534246758347385, 110.5993304253795], { icon: icon }).addTo(map).bindPopup('<center><img src="image/natalia.webp"> <br/> <b>RS Natalia Boyolali </b>');
+      var RSI = L.marker([-7.5546392, 110.6197095], { icon: icon }).addTo(map).bindPopup('<center><img src="image/rsi.jpg"> <br/> <b>RS Islam Boyolali</b>');
+      var Hidayah = L.marker([-7.5316477, 110.6222887], { icon: icon }).addTo(map).bindPopup('<center><img src="image/hidayah.jpg"> <br/> <b>RS Hidayah Boyolali</b>');
+      var Indriati = L.marker([-7.5385655, 110.6233935], { icon: icon }).addTo(map).bindPopup('<center><img src="image/indriati.jpg"> <br/> <b>RS Indriati Boyolali</b>');
+    </script>
+  </body>
+</html>
